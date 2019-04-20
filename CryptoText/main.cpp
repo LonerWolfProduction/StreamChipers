@@ -7,9 +7,6 @@
 #include "CommandEncode.hpp"
 #include "CommandHelp.hpp"
 
-
-
-
 int main()
 {
 	std::cout << "CryptoStreamText programm\n";
