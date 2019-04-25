@@ -4,7 +4,8 @@
 void Encode()
 {
 	srand(Password.GetPassword());
-	int randInt = rand() % 1000;;
+	int randInt = rand() % 1000;
+	while (randInt < 100) randInt = rand() % 1000;
 	char *p = Data.EnteredLine;
 	int iS = 0;
 	while (*p)
@@ -29,6 +30,7 @@ void Encode()
 			randInt = rand() % 1000;
 		}
 	}
+	Data.CountSymbol = iS;
 }
 
 #endif // !ENCODE_H

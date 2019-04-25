@@ -10,9 +10,9 @@ int XOR(int a, int b)
 		n = a & x;
 		m = b & x;
 		if (n != m)
-			number |= (1 << 7 - i);
+			number |= (1 << (7 - i));
 		else
-			number &= ~(1 << 7 - i);
+			number &= ~(1 << (7 - i));
 		x = x >> 1;
 	}
 	return number;

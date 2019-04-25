@@ -24,6 +24,7 @@ public:
 	void Initialization(std::string s)
 	{
 		strcpy_s(Password, s.c_str());
+		Generation();
 	}
 	int GetPassword()
 	{

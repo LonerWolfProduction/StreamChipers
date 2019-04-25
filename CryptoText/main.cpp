@@ -7,29 +7,13 @@
 #include "Combine.hpp"
 #include "RotateNumber.hpp"
 #include "XOR.hpp"
+#include "Help.hpp"
 #include "Password.hpp"
 #include "Data.hpp"
 #include "Encode.hpp"
 #include "Decode.hpp"
-
-void Help()
-{
-	std::cout << "This is help\n";
-}
-
-void SaveFile(char *p)
-{
-	std::ofstream fout;
-	fout.open(p);
-	bool exit = false;
-	for (int i = 0; i < 80 && !exit; i++)
-		for (int t = 0; t < 3; t++)
-		{
-			fout << Data.SecretLineCode[i][t] << " ";
-		}
-			
-	fout.close();
-}
+#include "SaveFile.hpp"
+#include "ReadFile.hpp"
 
 int main()
 {
@@ -44,38 +28,135 @@ int main()
 		if (command == "help") Help();
 		else if (command == "encode") { exit = true; encode = true; }
 		else if (command == "decode") { exit = true; decode = true; }
+		else if (command == "exit") { exit = true; }
 		else std::cout << "command is not found... Entered - help\n";
 	}
 
-	if (Encode)
+	if (encode)
 	{
 		std::string name;
 		std::string password;
 		std::string text;
-		std::cout << "Entered name file: "; std::getline(std::cin, name);
-		Data.SetNameFile(name);
+		std::string save; bool saveBool = false;
+		bool unsaveBool = false;
 		std::cout << "Entered password: "; std::getline(std::cin, password);
 		Password.Initialization(password);
 		std::cout << "Entered your text: "; std::getline(std::cin, text);
 		Data.SetEnteredLine(text.c_str());
-//		std::cout << Data.EnteredLine;
 		Encode();
-		for (int i = 0; i < 80; i++) for (int t = 0; t < 3; t++) std::cout << Data.SecretLineCode[i][t];
-		SaveFile(Data.NameFile);
+		std::cout << "Encode is successfully. Save file? y/n: "; 
+		while (!saveBool)
+		{
+			std::getline(std::cin, save);
+			if (save == "y")
+			{
+				std::cout << "Entered name file: "; std::getline(std::cin, name);
+				Data.SetNameFile(name);
+				SaveFile(Data.NameFile);
+				std::cout << "Save is successfully.\n";
+				saveBool = true;
+			}
+			else if (save == "n")
+			{
+				saveBool = true;
+			}
+			else
+			{
+				std::cout << "Please, entered y/n: ";
+			}
+		}
+		if (!unsaveBool)
+		{
+			bool EnterConsolBool = false;
+			std::string EnterConsol;
+			std::cout << "Entered in consol? y/n: ";
+			while (!EnterConsolBool)
+			{
+				std::getline(std::cin, EnterConsol);
+				if (EnterConsol == "y")
+				{
+					for (int i = 0; i < Data.CountSymbol; i++)
+						for (int t = 0; t < 3; t++)
+							std::cout << Data.SecretLineCode[i][t] << " ";
+					EnterConsolBool = true;
+				}
+				else if (EnterConsol == "n")
+				{
+					EnterConsolBool = true;
+				}
+				else
+				{
+					std::cout << "Please, entered y/n: ";
+				}
+			}
+		}
 	}
-
-//	Data.SetEnteredLine("Text is not secret. It's a test.");
-//	Password.Initialization();
-//	Encode();
-//	Decode();
-
-	int *s = Data.DecodeLine;
-	while (*s)
+	else if (decode)
 	{
-		std::cout << (char)(*s);
-		s++;
+		std::string name;
+		std::string password;
+		std::string save; bool saveBool = false;
+		bool unsaveBool = false;
+		std::cout << "Entered name file: "; std::getline(std::cin, name);
+		std::cout << "Entered password: "; std::getline(std::cin, password);
+		Password.Initialization(password);
+		ReadFile(name.c_str());
+		Decode();
+		std::cout << "Decode is successfully. Save file? y/n: ";
+		while (!saveBool)
+		{
+			std::getline(std::cin, save);
+			if (save == "y")
+			{
+				std::cout << "Entered name file: "; std::getline(std::cin, name);
+				Data.SetNameFile(name);
+				SaveFileDecode(Data.NameFile);
+				std::cout << "Save is successfully.\n";
+				saveBool = true;
+			}
+			else if (save == "n")
+			{
+				saveBool = true;
+			}
+			else
+			{
+				std::cout << "Please, entered y/n: ";
+			}
+		}
+		if (!unsaveBool)
+		{
+			bool EnterConsolBool = false;
+			std::string EnterConsol;
+			std::cout << "Entered in consol? y/n: ";
+			while (!EnterConsolBool)
+			{
+				std::getline(std::cin, EnterConsol);
+				if (EnterConsol == "y")
+				{
+					for (int i = 0; i < Data.CountSymbol; i++) std::cout << (char)Data.DecodeLine[i];
+					std::cout << "\n";
+					EnterConsolBool = true;
+				}
+				else if (EnterConsol == "n")
+				{
+					EnterConsolBool = true;
+				}
+				else
+				{
+					std::cout << "Please, entered y/n: ";
+				} 
+			}
+		}
 	}
-
 	system("PAUSE");
 	return 0;
 }
+
+/*
+
+for (int i = 0; i < 80; i++)
+for (int t = 0; t < 3; t++)
+std::cout << Data.SecretLineCode[i][t] << " ";
+std::cout << "\n\n\n";
+
+*/

@@ -118,7 +118,9 @@
     <ClInclude Include="Data.hpp" />
     <ClInclude Include="Decode.hpp" />
     <ClInclude Include="Encode.hpp" />
+    <ClInclude Include="Help.hpp" />
     <ClInclude Include="Password.hpp" />
+    <ClInclude Include="ReadFile.hpp" />
     <ClInclude Include="RotateNumber.hpp" />
     <ClInclude Include="SaveFile.hpp" />
     <ClInclude Include="XOR.hpp" />
