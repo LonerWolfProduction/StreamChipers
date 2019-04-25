@@ -114,11 +114,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClMass.hpp" />
-    <ClInclude Include="CommandCode.hpp" />
-    <ClInclude Include="CommandEncode.hpp" />
-    <ClInclude Include="CommandHelp.hpp" />
-    <ClInclude Include="EncodingClass.hpp" />
-    <ClInclude Include="GeneratorClass.hpp" />
+    <ClInclude Include="Combine.hpp" />
+    <ClInclude Include="Data.hpp" />
+    <ClInclude Include="Decode.hpp" />
+    <ClInclude Include="Encode.hpp" />
+    <ClInclude Include="Password.hpp" />
+    <ClInclude Include="RotateNumber.hpp" />
+    <ClInclude Include="SaveFile.hpp" />
+    <ClInclude Include="XOR.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
