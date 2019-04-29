@@ -4,19 +4,36 @@
 struct DataStruct
 {
 	int CountSymbol;
-	char EnteredLine[80];
-	char NameFile[80];
-	int SecretLineCode[80][3];
-	int DecodeLine[80];
+	int EnteredSymbol;
+	char NameFile[64];
+	char *EnteredLine;
+	int **SecretLineCode;
+	int *DecodeLine;
 	DataStruct()
 	{
-		ClMass(EnteredLine);
-		ClMass(DecodeLine);
+		ClMass(NameFile, 64);
 		CountSymbol = 0;
+		EnteredSymbol = 0;
+	}
+	void CreateSecretLineCode(int iS)
+	{
+		SecretLineCode = new int*[iS];
+		for (int i = 0; i < iS; i++)
+		{
+			SecretLineCode[i] = new int[3];
+		}
 	}
 	void SetEnteredLine(const char *p)
 	{
-		strcpy_s(EnteredLine, p);
+		EnteredLine = new char[EnteredSymbol];
+		strcpy_s(EnteredLine, EnteredSymbol, p);
+		CreateSecretLineCode(EnteredSymbol);
+	}
+	void CreateDecodeLine()
+	{
+		DecodeLine = new int[CountSymbol];
+		for (int i = 0; i < CountSymbol; i++)
+			DecodeLine[i] = 0;
 	}
 	void SetNameFile(std::string s)
 	{

@@ -8,6 +8,7 @@ void Encode()
 	while (randInt < 100) randInt = rand() % 1000;
 	char *p = Data.EnteredLine;
 	int iS = 0;
+	int iteration = 0;
 	while (*p)
 	{
 		int Latter = (int)(*p);
@@ -29,8 +30,9 @@ void Encode()
 		{
 			randInt = rand() % 1000;
 		}
+		iteration++;
 	}
-	Data.CountSymbol = iS;
+	Data.CountSymbol = iteration;
 }
 
 #endif // !ENCODE_H

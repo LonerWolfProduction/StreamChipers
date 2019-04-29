@@ -18,7 +18,7 @@ public:
 	PasswordClass()
 	{
 		ClMass(Password, 64);
-		strcpy_s(Password, "danil2236");
+		strcpy_s(Password, "defaultpassword");
 		CodePassword = 1;
 	}
 	void Initialization(std::string s)

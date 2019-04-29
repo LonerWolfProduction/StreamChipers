@@ -16,6 +16,9 @@
     <Filter Include="Additional Function">
       <UniqueIdentifier>{2be16487-3b2c-4dd5-b71e-fe854686ee8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File">
+      <UniqueIdentifier>{8189fd9e-791e-4c70-8568-0ff54b439124}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,14 +50,14 @@
     <ClInclude Include="ClMass.hpp">
       <Filter>Additional Function</Filter>
     </ClInclude>
-    <ClInclude Include="SaveFile.hpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClInclude>
     <ClInclude Include="ReadFile.hpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>File</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveFile.hpp">
+      <Filter>File</Filter>
     </ClInclude>
     <ClInclude Include="Help.hpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Additional Function</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
