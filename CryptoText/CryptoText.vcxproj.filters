@@ -19,6 +19,9 @@
     <Filter Include="File">
       <UniqueIdentifier>{8189fd9e-791e-4c70-8568-0ff54b439124}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Readme">
+      <UniqueIdentifier>{1224b164-fc01-49af-a9f8-44659a872b56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -59,5 +62,13 @@
     <ClInclude Include="Help.hpp">
       <Filter>Additional Function</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt">
+      <Filter>Readme</Filter>
+    </Text>
+    <Text Include="readme_ru.txt">
+      <Filter>Readme</Filter>
+    </Text>
   </ItemGroup>
 </Project>

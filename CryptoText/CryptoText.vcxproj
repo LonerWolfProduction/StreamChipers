@@ -125,6 +125,10 @@
     <ClInclude Include="SaveFile.hpp" />
     <ClInclude Include="XOR.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+    <Text Include="readme_ru.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
